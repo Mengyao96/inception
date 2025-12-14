@@ -17,6 +17,11 @@ else
 	#download wordpress  core 
 	wp core download --allow-root
 
+	echo "Waiting for MariaDB to start..."
+	until mysql -h mariadb -u $SQL_USER -p$SQL_PASSWORD -e "SELECT 1" >/dev/null 2>&1; do sleep 2
+	done
+	echo "MariaDB is ready!"
+
 	#generate config files
 	wp config create \
 		--dbname=$SQL_DATABASE \

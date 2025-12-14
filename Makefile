@@ -1,4 +1,4 @@
-DATA_PATH = /home/tracy/data
+DATA_PATH = /home/mezhang/data
 
 all: up
 
